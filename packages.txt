@@ -1,0 +1,21 @@
+Important Note... Install these packages.
+packages...
+
+npm init -y
+npm install express
+npm install typescript
+npm install @types/express @types/node
+npx tsc --init // will create tsconfig.json file
+npx tsc
+npm install -D nodemon
+npm install rmraf
+npm install concurrently
+
+
+
+also we have to update/alter package.json file
+and add tsconfig.json file as well inorder to 
+run typscript using node .
+
+we have to change "outDir": "." to "outDir": "./dist"
+in tsconfig.json file also inorder to run the .ts files.
