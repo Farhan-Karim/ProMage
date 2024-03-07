@@ -17,8 +17,9 @@ import {
 import { createManager, getManagers, deleteManager } from "./src/apis/manager";
 
 const app = express();
+const cors = require('cors');
 const PORT = 8080;
-
+app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB

@@ -9,7 +9,9 @@ const project_1 = require("./src/apis/project");
 const task_1 = require("./src/apis/task");
 const manager_1 = require("./src/apis/manager");
 const app = (0, express_1.default)();
+const cors = require('cors');
 const PORT = 8080;
+app.use(cors());
 app.use(express_1.default.json());
 // Connect to MongoDB
 // mongoose.connect('mongodb://localhost:27017/myproject', { useNewUrlParser: true, useUnifiedTopology: true })
