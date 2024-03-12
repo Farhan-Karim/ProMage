@@ -15,7 +15,13 @@ const createProject = (req, res) => __awaiter(void 0, void 0, void 0, function* 
     try {
         console.log("Project added successfully... ", req.body);
         const { name, startDate, endDate, manager, description } = req.body;
-        const project = new project_1.Project({ name, startDate, endDate, manager, description });
+        const project = new project_1.Project({
+            name,
+            startDate,
+            endDate,
+            manager,
+            description,
+        });
         yield project.save();
         res.status(201).json(project);
     }
@@ -54,8 +60,8 @@ exports.getProjectById = getProjectById;
 const updateProject = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const projectId = req.params.id;
-        const { name, startDate, endDate, manager } = req.body;
-        const project = yield project_1.Project.findByIdAndUpdate(projectId, { name, startDate, endDate, manager }, { new: true });
+        const { name, startDate, endDate, manager, description } = req.body;
+        const project = yield project_1.Project.findByIdAndUpdate(projectId, { name, startDate, endDate, manager, description }, { new: true });
         if (!project) {
             res.status(404).json({ error: "Project not found" });
             return;

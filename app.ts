@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-// import cors from "cors";
+import cors from 'cors';
 import {
   createProject,
   getProjects,
@@ -18,7 +18,7 @@ import {
 import { createManager, getManagers, deleteManager } from "./src/apis/manager";
 
 const app = express();
-const cors = require('cors');
+
 const PORT = 4200;
 app.use(cors());
 app.use(express.json());

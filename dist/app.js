@@ -5,14 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const mongoose_1 = __importDefault(require("mongoose"));
-// import cors from "cors";
+const cors_1 = __importDefault(require("cors"));
 const project_1 = require("./src/apis/project");
 const task_1 = require("./src/apis/task");
 const manager_1 = require("./src/apis/manager");
 const app = (0, express_1.default)();
-const cors = require('cors');
 const PORT = 4200;
-app.use(cors());
+app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 mongoose_1.default
     .connect("mongodb://localhost:27017/myproject")
