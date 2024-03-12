@@ -13,6 +13,7 @@ exports.deleteTask = exports.updateTask = exports.getTaskById = exports.getTasks
 const task_1 = require("../models/task");
 const createTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
+        console.log("task added successfully... ", req.body);
         const { projectId, name, description, status } = req.body;
         const task = new task_1.Task({ projectId, name, description, status });
         yield task.save();
@@ -79,52 +80,3 @@ const deleteTask = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
 });
 exports.deleteTask = deleteTask;
-// tasks.ts
-// import { Express, Request, Response } from "express";
-// const tasksAPI = (app: Express) => {
-//   let tasks: any[] = [
-//     { id: 1, projectId: 1, name: "Task 1", description: "Description for Task 1", status: "In Progress" },
-//     { id: 2, projectId: 1, name: "Task 2", description: "Description for Task 2", status: "Completed" },
-//     { id: 3, projectId: 2, name: "Task 3", description: "Description for Task 3", status: "Pending" }
-//   ];
-//   // Get all tasks
-//   app.get("/tasks", (req: Request, res: Response) => {
-//     res.json(tasks);
-//   });
-//   // Get task by ID
-//   app.get("/tasks/:id", (req: Request, res: Response) => {
-//     const taskId: number = parseInt(req.params.id);
-//     const task = tasks.find(task => task.id === taskId);
-//     if (task) {
-//       res.json(task);
-//     } else {
-//       res.status(404).send("Task not found");
-//     }
-//   });
-//   // Create a new task
-//   app.post("/tasks", (req: Request, res: Response) => {
-//     const { projectId, name, description, status } = req.body;
-//     const newTask = { id: tasks.length + 1, projectId, name, description, status };
-//     tasks.push(newTask);
-//     res.status(201).json(newTask);
-//   });
-//   // Update a task
-//   app.put("/tasks/:id", (req: Request, res: Response) => {
-//     const taskId: number = parseInt(req.params.id);
-//     const { projectId, name, description, status } = req.body;
-//     const taskIndex = tasks.findIndex(task => task.id === taskId);
-//     if (taskIndex !== -1) {
-//       tasks[taskIndex] = { ...tasks[taskIndex], projectId, name, description, status };
-//       res.json(tasks[taskIndex]);
-//     } else {
-//       res.status(404).send("Task not found");
-//     }
-//   });
-//   // Delete a task
-//   app.delete("/tasks/:id", (req: Request, res: Response) => {
-//     const taskId: number = parseInt(req.params.id);
-//     tasks = tasks.filter(task => task.id !== taskId);
-//     res.status(204).send();
-//   });
-// };
-// export default tasksAPI;

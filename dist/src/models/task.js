@@ -26,10 +26,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Task = void 0;
 const mongoose_1 = __importStar(require("mongoose"));
 const taskSchema = new mongoose_1.Schema({
-    projectId: { type: mongoose_1.Schema.Types.ObjectId, ref: 'Project' },
+    projectId: { type: mongoose_1.Schema.Types.ObjectId, ref: "Project" },
     name: { type: String, required: true },
     description: { type: String },
-    status: { type: String, enum: ['pending', 'in_progress', 'completed'], default: 'pending' }
+    status: {
+        type: String,
+        enum: ["pending", "in_progress", "completed"],
+        default: "pending",
+    },
 });
-const Task = mongoose_1.default.model('Task', taskSchema);
+const Task = mongoose_1.default.model("Task", taskSchema);
 exports.Task = Task;

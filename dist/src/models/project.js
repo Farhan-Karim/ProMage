@@ -29,7 +29,8 @@ const projectSchema = new mongoose_1.Schema({
     name: { type: String, required: true },
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
-    manager: { type: String, required: true }
+    manager: { type: String, required: true },
+    description: { type: String }
 });
 const Project = mongoose_1.default.model('Project', projectSchema);
 exports.Project = Project;
